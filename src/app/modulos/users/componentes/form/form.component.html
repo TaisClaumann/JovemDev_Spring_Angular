@@ -1,0 +1,22 @@
+<div>
+    <div>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" [(ngModel)]="nome">
+        <button (click)="getUsersByName()">Filtrar</button>
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="text" id="email" [(ngModel)]="email">
+        <button (click)="getUserByEmail()">Filtrar</button>
+    </div>
+    <div>
+        <label for="senha">Senha</label>
+        <input type="text" id="senha" [(ngModel)]="senha">
+    </div>
+    <div>
+        <label for="permissoes">Permissões</label>
+        <input type="radio" value="ADMIN,USER" id="permissoes">ADMIN
+        <input type="radio" value="USER" id="permissoes">USER
+    </div>
+</div>
+<app-tabela></app-tabela>

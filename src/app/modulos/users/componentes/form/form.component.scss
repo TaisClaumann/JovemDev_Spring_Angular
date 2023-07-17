@@ -1,0 +1,69 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.label {
+    margin-right: 10px;
+}
+
+.input {
+    width: 350px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.lupa {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.radio-group label {
+    margin-right: 10px;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.buttonContainer{
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.buttonContainer button{
+    background-color: rgb(10, 155, 10);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 400;
+    padding: 7px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.buttonContainer button:hover{
+    background-color: rgb(8, 139, 8);
+}

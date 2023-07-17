@@ -8,7 +8,7 @@ import { UserServiceService } from '../../services/user-service.service';
 })
 export class FormComponent {
 
-  public nome: string = "";
+  public name: string = "";
   public email: string = "";
   public senha: string = "";
   public permissoes: string = "";
@@ -16,7 +16,7 @@ export class FormComponent {
   constructor(private service: UserServiceService){}
 
   public getUsersByName(){
-    this.service.getNome(this.nome);
+    this.service.getNome(this.name);
   }
 
   public getUserByEmail(){

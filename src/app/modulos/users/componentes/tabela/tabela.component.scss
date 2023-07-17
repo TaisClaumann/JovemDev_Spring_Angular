@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+table, th, td, tr{
+    border: rgb(10, 155, 10) solid 3px;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+th{
+    background-color: rgb(109, 209, 109);
+    color: rgb(13, 127, 13);
+}
+
+.celulaCentralizada{
+    text-align: center;
+}
+
+.icone{
+    width: 35px;
+    cursor: pointer;
+}
+
+

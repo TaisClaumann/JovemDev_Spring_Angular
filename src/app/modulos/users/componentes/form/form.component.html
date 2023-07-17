@@ -1,22 +1,24 @@
-<div>
-    <div>
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" [(ngModel)]="nome">
-        <button (click)="getUsersByName()">Filtrar</button>
+<div class="container">
+    <div class="form-group">
+        <label class="label" for="name">Nome:</label>
+        <input class="input" type="text" id="name" [(ngModel)]="name">
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getUsersByName()">
     </div>
-    <div>
-        <label for="email">Email</label>
-        <input type="text" id="email" [(ngModel)]="email">
-        <button (click)="getUserByEmail()">Filtrar</button>
+    <div class="form-group">
+        <label class="label" for="email">Email:</label>
+        <input class="input" type="text" id="email" [(ngModel)]="email">
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getUserByEmail()">
     </div>
-    <div>
-        <label for="senha">Senha</label>
-        <input type="text" id="senha" [(ngModel)]="senha">
+    <div class="form-group">
+        <label class="label" for="senha">Senha:</label>
+        <input class="input" type="text" id="senha" [(ngModel)]="senha">
     </div>
-    <div>
-        <label for="permissoes">Permissões</label>
-        <input type="radio" value="ADMIN,USER" id="permissoes">ADMIN
-        <input type="radio" value="USER" id="permissoes">USER
+    <div class="radio-group">
+        <label class="label" for="permissoes">Permissões:</label>
+        <input class="radio" type="radio" value="ADMIN,USER" id="permissoes" checked>ADMIN
+        <input class="radio" type="radio" value="USER" id="permissoes">USER
+    </div>
+    <div class="buttonContainer">
+        <button>Salvar</button>
     </div>
 </div>
-<app-tabela></app-tabela>

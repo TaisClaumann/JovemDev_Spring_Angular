@@ -8,10 +8,9 @@ import { User } from '../models/user';
 })
 export class UserServiceService {
 
-  public emiteEmail = new EventEmitter();
-  public emiteId = new EventEmitter();
   public selectUserEvent = new EventEmitter();
   private usersSubject = new Subject<User[]>();
+  public userSubject = new Subject<User>();
 
   private urlBase: string = 'http://localhost:8099/user';
   private httpOptions = {
@@ -33,12 +32,14 @@ export class UserServiceService {
 
   public getUserByEmail(email: string): Observable<User> {
     let url = `${this.urlBase}/email/${email}`;
-    return this.http.get<User>(url);
+    this.http.get<User>(url).subscribe((user) => this.userSubject.next(user));
+    return this.userSubject.asObservable();
   }
 
   public getUserById(id: number){
     let url = `${this.urlBase}/${id}`;
-    return this.http.get<User>(url);
+    this.http.get<User>(url).subscribe((user) => this.userSubject.next(user));
+    return this.userSubject.asObservable();
   }
 
   public insert(user: User): Observable<User> {
@@ -61,13 +62,5 @@ export class UserServiceService {
 
   public selectUser(user: User) {
     this.selectUserEvent.emit(user);
-  }
-
-  public getEmail(email: string) {
-    this.emiteEmail.emit(email);
-  }
-
-  public getId(id: number){
-    this.emiteId.emit(id);
   }
 }

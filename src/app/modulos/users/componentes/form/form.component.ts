@@ -10,8 +10,8 @@ import { User } from '../../models/user';
 export class FormComponent implements OnInit{
 
   public user = {} as User;
+  public userFound = {} as User;
   public id!: number;
-  public users: User[] = [];
 
   constructor(private service: UserServiceService){}
 
@@ -21,29 +21,28 @@ export class FormComponent implements OnInit{
     })
   }
 
-  public getUserById(){
-    this.service.getId(this.id);
-  }
-
   public insert(){
     if(this.user.id != null){
       this.service.update(this.user).subscribe((data) => {
         this.user = data;
-      })
+        this.user = {} as User;
+      });
     } else {
       this.service.insert(this.user).subscribe((data) => {
         this.user = data;
-      })
+      });
     }
   }
 
   public getUsersByName(){
-    this.service.getUsersByName(this.user.name).subscribe((data) => {
-      this.users = data;
-    })
+    this.service.getUsersByName(this.user.name);
   }
 
   public getUserByEmail(){
-    this.service.getEmail(this.user.email);
+    this.service.getUserByEmail(this.user.email);
+  }
+
+  public getUserById(){
+    this.service.getUserById(this.id);
   }
 }

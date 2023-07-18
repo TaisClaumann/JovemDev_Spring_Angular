@@ -9,11 +9,20 @@
     margin-bottom: 10px;
 }
 
-.label {
+label {
     margin-right: 10px;
 }
 
-.input {
+.labelAno{
+    margin-right: 21px;
+}
+
+.labelBuscar{
+    margin-right: 10px;
+    color: rgb(10, 155, 10);
+}
+
+input {
     width: 350px;
     height: 30px;
     padding: 5px;
@@ -23,6 +32,15 @@
 }
 
 .inputCodigo{
+    width: 150px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.inputPequeno{
     width: 200px;
     height: 30px;
     padding: 5px;
@@ -56,4 +74,11 @@
 
 .buttonContainer button:hover{
     background-color: rgb(8, 139, 8);
+}
+
+.espacamentoBuscar{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }

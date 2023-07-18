@@ -1,8 +1,8 @@
 <div class="container">
     <div class="form-group">
         <label class="label" for="name">Nome:</label>
-        <input class="input" type="text" id="name" [(ngModel)]="pais.name">
-        <img (click)="getPaisByName()" class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa">
+        <input class="input" type="text" id="name" [(ngModel)]="equipe.name">
+        <img (click)="getEquipeByName()" class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa">
     </div>
     <div class="buttonContainer">
         <button (click)="insert()">Salvar</button>
@@ -10,6 +10,7 @@
     <div class="form-group">
         <label class="label" for="id">COD:</label>
         <input class="inputCodigo" type="text" id="id" [(ngModel)]="id" placeholder="Busque pelo codigo aqui">
-        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getPaisById()">
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getEquipeById()">
     </div>
 </div>
+

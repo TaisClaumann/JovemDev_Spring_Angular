@@ -17,5 +17,25 @@ export class TabelaComponent implements OnInit{
     this.service.listAll().subscribe((data) => {
       this.paises = data;
     })
+    this.service.paisSubject.subscribe((data) => {
+      this.getPaisFiltrado(data);
+    })
+  }
+
+  public getPaisFiltrado(pais: Pais){
+    this.paises = [];
+    this.paises.push(pais);
+  }
+
+  public getPaisSelect(pais: Pais){
+    this.service.getPaisSelect(pais);
+  }
+
+  public delete(pais:Pais){
+    this.service.delete(pais).subscribe(() => {
+      this.service.listAll().subscribe((data) => {
+        this.paises = data;
+      })
+    });
   }
 }

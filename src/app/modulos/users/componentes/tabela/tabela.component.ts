@@ -16,12 +16,14 @@ export class TabelaComponent implements OnInit{
     this.service.getUsers().subscribe((data) => {
       this.users = data;
     })
-    this.service.emiteEmail.subscribe((email) => {
-      this.service.getUserByEmail(email).subscribe((data) => {
-        this.users = [];
-        this.users.push(data);
-      });
-    });
+    this.service.userSubject.subscribe((data) => {
+      this.getUserFiltrado(data);
+    })
+  }
+
+  public getUserFiltrado(data: any){
+    this.users = [];
+    this.users.push(data);
   }
 
   public selectUser(user:User){

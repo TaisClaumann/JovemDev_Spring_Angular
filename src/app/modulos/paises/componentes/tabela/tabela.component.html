@@ -1,14 +1,16 @@
 <div class="container">
     <table>
         <tr>
+            <th>COD</th>
             <th>Nome</th>
             <th>Ações</th>
         </tr>
         <tr *ngFor="let pais of paises">
+            <td>{{pais.id}}</td>
             <td>{{pais.name}}</td>
             <td class="celulaCentralizada">
-                <img class="icone" src="../../../../../assets/icons/delete.png" alt="lixo">
-                <img class="icone" src="../../../../../assets/icons/edit.png" alt="caneta">
+                <img (click)="delete(pais)" class="icone" src="../../../../../assets/icons/delete.png" alt="lixo">
+                <img (click)="getPaisSelect(pais)" class="icone" src="../../../../../assets/icons/edit.png" alt="caneta">
             </td>
         </tr>
     </table>

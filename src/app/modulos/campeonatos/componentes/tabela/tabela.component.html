@@ -1,0 +1,19 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>COD</th>
+            <th>Nome</th>
+            <th>Ano</th>
+            <th>Ações</th>
+        </tr>
+        <tr *ngFor="let campeonato of campeonatos">
+            <td>{{campeonato.id}}</td>
+            <td>{{campeonato.description}}</td>
+            <td>{{campeonato.ano}}</td>
+            <td class="celulaCentralizada">
+                <img (click)="delete(campeonato)" class="icone" src="../../../../../assets/icons/delete.png" alt="lixo">
+                <img (click)="getCampeonatoSelect(campeonato)" class="icone" src="../../../../../assets/icons/edit.png" alt="caneta">
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>COD</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+        <tr *ngFor="let equipe of equipes">
+            <td>{{equipe.id}}</td>
+            <td>{{equipe.name}}</td>
+            <td class="celulaCentralizada">
+                <img (click)="delete(equipe)" class="icone" src="../../../../../assets/icons/delete.png" alt="lixo">
+                <img (click)="getEquipeSelect(equipe)" class="icone" src="../../../../../assets/icons/edit.png" alt="caneta">
+            </td>
+        </tr>
+    </table>
+</div>

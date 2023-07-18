@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="form-group">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" [(ngModel)]="campeonato.description">
+        <img (click)="getCampeoantoByDescription()" class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa">
+    </div>
+    <div class="form-group">
+        <label class="labelAno" for="name">Ano:</label>
+        <input class="inputPequeno" type="text" id="name" [(ngModel)]="campeonato.ano">
+        <img (click)="getCampeonatoByAno()" class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa">
+    </div>
+    <div class="buttonContainer">
+        <button (click)="insert()">Salvar</button>
+    </div>
+    <div class="form-group">
+        <label for="id">COD:</label>
+        <input class="inputCodigo" type="text" id="id" [(ngModel)]="id" placeholder="Busque pelo codigo aqui">
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getCampeonatoById()">
+    </div>
+    <div class="espacamentoBuscar">
+        <label class="labelBuscar" for="id">Buscar campeonatos entre anos:</label>
+    </div>
+    <div class="form-group">
+        <input class="inputPequeno" type="text" id="id" [(ngModel)]="anoInicial" placeholder="Informe o ano inicial">
+        <input class="inputPequeno" type="text" id="id" [(ngModel)]="anoFinal" placeholder="Informe o ano final">
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getCampeonatoByAnoBetween()">
+    </div>
+</div>

@@ -1,18 +1,20 @@
 <div class="container">
     <table>
         <tr>
+            <th>COD</th>
             <th>Nome</th>
             <th>Email</th>
             <th>Permissões</th>
             <th>Ações</th>
         </tr>
         <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
             <td class="celulaCentralizada">{{user.roles}}</td>
             <td class="celulaCentralizada">
-                <img class="icone" src="../../../../../assets/icons/delete.png" alt="lixo">
-                <img class="icone" src="../../../../../assets/icons/edit.png" alt="caneta">
+                <img (click)="delete(user)" class="icone" src="../../../../../assets/icons/delete.png" alt="lixo">
+                <img (click)="selectUser(user)" class="icone" src="../../../../../assets/icons/edit.png" alt="caneta">
             </td>
         </tr>
     </table>

@@ -1,42 +1,73 @@
-import { EventEmitter, Injectable, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Observable, Subject, tap } from 'rxjs';
 import { User } from '../models/user';
-import { FormComponent } from '../componentes/form/form.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class UserServiceService{
+export class UserServiceService {
 
-  public users !: User[];
-
-  public emiteNome = new EventEmitter();
   public emiteEmail = new EventEmitter();
+  public emiteId = new EventEmitter();
+  public selectUserEvent = new EventEmitter();
+  private usersSubject = new Subject<User[]>();
+
+  private urlBase: string = 'http://localhost:8099/user';
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
 
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<User[]> {
-    let url = `http://localhost:8099/user`;
-    return this.http.get<User[]>(url);
+  public getUsers(): Observable<User[]> {
+    this.http.get<User[]>(this.urlBase).subscribe((users) => this.usersSubject.next(users));
+    return this.usersSubject.asObservable();
   }
 
-  getUsersByName(nome: string): Observable<User[]> {
-    let url = `http://localhost:8099/user/like/${nome}`
-    return this.http.get<User[]>(url);
+  public getUsersByName(name: string): Observable<User[]> {
+    let url = `${this.urlBase}/like/${name}`;
+    this.http.get<User[]>(url).subscribe((users) => this.usersSubject.next(users));
+    return this.usersSubject.asObservable();
   }
 
-  getUserByEmail(email: string): Observable<User> {
-    let url = `http://localhost:8099/user/email/${email}`
+  public getUserByEmail(email: string): Observable<User> {
+    let url = `${this.urlBase}/email/${email}`;
     return this.http.get<User>(url);
   }
 
-  public getNome(nome: string) {
-    this.emiteNome.emit(nome)
+  public getUserById(id: number){
+    let url = `${this.urlBase}/${id}`;
+    return this.http.get<User>(url);
   }
 
-  public getEmail(email: string){
+  public insert(user: User): Observable<User> {
+    return this.http.post<User>(this.urlBase, JSON.stringify(user), this.httpOptions)
+    .pipe(tap(() => {
+      this.getUsers();
+    }));
+  }
+
+  public update(user: User): Observable<User> {
+    return this.http.put<User>(`${this.urlBase}/${user.id}`, JSON.stringify(user), this.httpOptions)
+    .pipe(tap(() => {
+      this.getUsers();
+    }));
+  }
+
+  public delete(user: User): Observable<void>{
+    return this.http.delete<void>(`${this.urlBase}/${user.id}`);
+  }
+
+  public selectUser(user: User) {
+    this.selectUserEvent.emit(user);
+  }
+
+  public getEmail(email: string) {
     this.emiteEmail.emit(email);
+  }
+
+  public getId(id: number){
+    this.emiteId.emit(id);
   }
 }

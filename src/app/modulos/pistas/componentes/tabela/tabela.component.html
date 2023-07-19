@@ -1,0 +1,20 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>COD</th>
+            <th>Tamanho</th>
+            <th>Pais</th>
+            <th>Ações</th>
+        </tr>
+        <tr *ngFor="let pista of pistas">
+            <td>{{pista.id}}</td>
+            <td>{{pista.tamanho}}</td>
+            <td>{{pista.pais.name}}</td>
+            <td class="celulaCentralizada">
+                <img (click)="delete(pista)" class="icone" src="../../../../../assets/icons/delete.png" alt="lixo">
+                <img (click)="getPistaSelect(pista)" class="icone" src="../../../../../assets/icons/edit.png" alt="caneta">
+            </td>
+        </tr>
+    </table>
+</div>
+

@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http'
 import { PaisesModule } from './modulos/paises/paises.module';
 import { EquipesModule } from './modulos/equipes/equipes.module';
 import { CampeonatosModule } from './modulos/campeonatos/campeonatos.module';
+import { PistasModule } from './modulos/pistas/pistas.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,8 @@ import { CampeonatosModule } from './modulos/campeonatos/campeonatos.module';
     HttpClientModule, 
     PaisesModule,
     EquipesModule,
-    CampeonatosModule
+    CampeonatosModule,
+    PistasModule
   ],
   providers: [],
   bootstrap: [AppComponent],

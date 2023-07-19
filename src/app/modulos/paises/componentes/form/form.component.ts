@@ -29,6 +29,7 @@ export class FormComponent implements OnInit{
     } else {
       this.service.insert(this.pais).subscribe((data) => {
         this.pais = data;
+        this.pais = {} as Pais;
       });
     }
   }

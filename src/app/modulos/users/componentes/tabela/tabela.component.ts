@@ -10,15 +10,19 @@ import { UserServiceService } from '../../services/user-service.service';
 export class TabelaComponent implements OnInit{
   
   public users : User[] = [];
+  public token: string = "Bearer ";
   constructor(private service: UserServiceService){}
 
   ngOnInit(): void {
-    this.service.getUsers().subscribe((data) => {
+   this.service.getToken().subscribe((data) => {
+    this.token += data;
+    this.service.getUsers(this.token).subscribe((data) => {
       this.users = data;
     })
-    this.service.userSubject.subscribe((data) => {
-      this.getUserFiltrado(data);
-    })
+   });
+    //this.service.userSubject.subscribe((data) => {
+    //  this.getUserFiltrado(data);
+   // })
   }
 
   public getUserFiltrado(data: any){
@@ -32,9 +36,9 @@ export class TabelaComponent implements OnInit{
 
   public delete(user:User){
     this.service.delete(user).subscribe(() => {
-      this.service.getUsers().subscribe((data) => {
-        this.users = data;
-      })
+   //   this.service.getUsers().subscribe((data) => {
+   //     this.users = data;
+   //   })
     });
   }
 }

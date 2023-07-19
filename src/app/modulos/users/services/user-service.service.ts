@@ -1,7 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { Observable, Subject, tap } from 'rxjs';
+import { Observable, Subject, map, tap } from 'rxjs';
 import { User } from '../models/user';
+import { Token } from '@angular/compiler';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,13 +16,27 @@ export class UserServiceService {
 
   private urlBase: string = 'http://localhost:8099/user';
   private httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    headers: new HttpHeaders({ 'Content-Type': 'application/json'}),
   };
 
-  constructor(private http: HttpClient) {}
+  private httpOptions2 = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'}),
+    responseType: 'text' as 'json'
+  }
+
+  constructor(private http: HttpClient, private globalService: GlobalService) {}
+
+  private getToken() {
+    this.globalService.getToken("will@gmail.com", "123");
+    console.log(this.globalService.token);
+  }
 
   public getUsers(): Observable<User[]> {
-    this.http.get<User[]>(this.urlBase).subscribe((users) => this.usersSubject.next(users));
+    this.getToken();
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', "Authorization": this.globalService.token}),
+    };
+    this.http.get<User[]>(this.urlBase, httpOptions).subscribe((users) => this.usersSubject.next(users));
     return this.usersSubject.asObservable();
   }
 

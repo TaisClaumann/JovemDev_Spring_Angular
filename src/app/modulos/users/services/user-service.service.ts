@@ -19,17 +19,21 @@ export class UserServiceService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'}),
   };
 
+  /*
   private httpOptions2 = {
     headers: new HttpHeaders({'Content-Type': 'application/json'}),
     responseType: 'text' as 'json'
   }
+  */
 
   constructor(private http: HttpClient, private globalService: GlobalService) {}
 
+  /*
   private getToken() {
     this.globalService.getToken("will@gmail.com", "123");
     console.log(this.globalService.token);
   }
+  
 
   public getUsers(): Observable<User[]> {
     this.getToken();
@@ -37,6 +41,12 @@ export class UserServiceService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json', "Authorization": this.globalService.token}),
     };
     this.http.get<User[]>(this.urlBase, httpOptions).subscribe((users) => this.usersSubject.next(users));
+    return this.usersSubject.asObservable();
+  }
+  */
+
+  public getUsers(): Observable<User[]> {
+    this.http.get<User[]>(this.urlBase).subscribe((users) => this.usersSubject.next(users));
     return this.usersSubject.asObservable();
   }
 

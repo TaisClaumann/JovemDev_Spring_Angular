@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { Observable, Subject, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
 import { Pista } from '../models/pista';
 import { Pais } from '../../paises/models/pais';
 
@@ -11,8 +11,9 @@ export class PistaService {
 
   private urlBase: string = 'http://localhost:8099/pista';
   public selectPistaEvent = new EventEmitter();
-  private pistasSubject = new Subject<Pista[]>();
+  public pistasSubject = new Subject<Pista[]>();
   public pistaSubject = new Subject<Pista>();
+  private pistasBehaviorSubject = new BehaviorSubject<Pista[]>([]);
 
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -37,10 +38,10 @@ export class PistaService {
     return this.pistaSubject.asObservable();
   }
 
-  public findByPais(pais: Pais): Observable<Pista> {
-    let url = `${this.urlBase}/pais/${pais.id}`;
+  public findByPais(paisId: Number): Observable<Pista[]> {
+    let url = `${this.urlBase}/pais/${paisId}`;
     this.http.get<Pista>(url).subscribe((pista) => this.pistaSubject.next(pista));
-    return this.pistaSubject.asObservable();
+    return this.pistasSubject.asObservable();
   }
 
   public insert(pista: Pista): Observable<Pista>{

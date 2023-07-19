@@ -13,9 +13,9 @@ export class FormComponent implements OnInit{
 
   public pista = {} as Pista;
   public paises: Pais[] = [];
-  public paisId !: number;
   public pais = {} as Pais;
   public id!: number;
+  public paisId!: number;
   public tamanhoInicial!: number;
   public tamanhoFinal!: number;
 
@@ -25,6 +25,10 @@ export class FormComponent implements OnInit{
     this.paisService.listAll().subscribe((data) => {
       this.paises = data;
     });
+    const pais = this.paises.find(pais => pais.id == this.paisId);
+    if(pais){
+      this.pais = pais;
+    }
   }
 
   public insert() {
@@ -50,10 +54,11 @@ export class FormComponent implements OnInit{
   }
 
   public getPistaByPais() {
-    const pais = this.paises.find(pais => pais.id == this.paisId);
-    if(pais){
-      this.pais = {id: pais.id, name: pais.name};
-      this.service.findByPais(this.pais);
+    console.log(this.paisId);
+    //const pais = this.paises.find(pais => pais.id == this.paisId);
+    console.log(this.pais.name)
+    if (this.paisId) {
+      this.service.findByPais(this.pais.id);
     }
   }
 }

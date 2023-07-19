@@ -19,7 +19,7 @@ export class TabelaComponent implements OnInit{
     });
     this.service.pistaSubject.subscribe((data) => {
       this.getPaisFiltrado(data);
-    })
+    });
   }
 
   public getPaisFiltrado(pista: Pista){
@@ -28,10 +28,14 @@ export class TabelaComponent implements OnInit{
   }
 
   public delete(pista: Pista) {
-
+    this.service.delete(pista).subscribe(() => {
+      this.service.listAll().subscribe((data) => {
+        this.pistas = data;
+      })
+    });
   }
 
-  public getPistaSelect(pista: Pista){}
-  
-
+  public getPistaSelect(pista: Pista){
+    this.service.getPistaSelect(pista);
+  }
 }

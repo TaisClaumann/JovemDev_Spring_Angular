@@ -11,9 +11,8 @@ export class PistaService {
 
   private urlBase: string = 'http://localhost:8099/pista';
   public selectPistaEvent = new EventEmitter();
-  public pistasSubject = new Subject<Pista[]>();
+  private pistasSubject = new Subject<Pista[]>();
   public pistaSubject = new Subject<Pista>();
-  private pistasBehaviorSubject = new BehaviorSubject<Pista[]>([]);
 
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -40,12 +39,12 @@ export class PistaService {
 
   public findByPais(paisId: Number): Observable<Pista[]> {
     let url = `${this.urlBase}/pais/${paisId}`;
-    this.http.get<Pista>(url).subscribe((pista) => this.pistaSubject.next(pista));
+    this.http.get<Pista[]>(url).subscribe((pistas) => this.pistasSubject.next(pistas));
     return this.pistasSubject.asObservable();
   }
 
   public insert(pista: Pista): Observable<Pista>{
-    return this.http.post<Pista>(this.urlBase, JSON.stringify(pista), this.httpOptions)
+    return this.http.post<Pista>(this.urlBase, pista, this.httpOptions)
     .pipe(tap(() => {
       this.listAll();
     }));

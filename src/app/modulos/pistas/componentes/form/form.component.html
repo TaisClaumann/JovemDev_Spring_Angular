@@ -2,13 +2,12 @@
     <div class="combobox-container">
         <label for="tamanho">Tamanho:</label>
         <input class="input" type="text" id="tamanho" [(ngModel)]="pista.tamanho">
-        <img (click)="getPistaByTamanho()" class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa">
     </div>
     <div class="combobox-container">
         <label for="pais">Pais:</label>
-        <select name="paises" id="paises" class="combobox-select" [(ngModel)]="paisId">
+        <select id="paises" class="combobox-select" [(ngModel)]="paisSelecionado" (change)="paisId = paisSelecionado.id">
             <option value="" disabled selected>Selecione um país</option>
-            <option *ngFor="let pais of paises" [value]="pais.id">{{pais.name}}</option>
+            <option *ngFor="let pais of paises" [ngValue]="pais">{{pais.name}}</option>
         </select>
         <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getPistaByPais()">
     </div>

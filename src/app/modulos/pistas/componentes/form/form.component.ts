@@ -30,10 +30,6 @@ export class FormComponent implements OnInit{
     })
   }
 
-  onChangePais() {
-    this.getPistaByPais();
-  }
-
   public insert() {
     if(this.paisSelecionado){
       this.pista.pais = this.paisSelecionado;

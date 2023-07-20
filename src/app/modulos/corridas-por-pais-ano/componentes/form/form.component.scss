@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-right: 10px;
+}
+
+.input {
+    width: 350px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.combobox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+.combobox-select {
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 17px;
+}
+
+button{
+    background-color: rgb(10, 155, 10);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 400;
+    padding: 7px;
+    width: 150px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(8, 139, 8);
+}
+
+.titulo{
+    color: rgb(10, 155, 10);
+    text-align: center;
+    margin-bottom: 30px;
+}

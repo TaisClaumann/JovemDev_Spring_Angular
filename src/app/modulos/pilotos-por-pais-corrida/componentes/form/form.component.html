@@ -1,0 +1,25 @@
+<div>
+    <div class="titulo">
+        <h2>Buscar Pilotos por País e Corrida</h2>
+    </div>
+    <div class="combobox-container">
+        <label for="paises">País:</label>
+        <select id="paises" class="combobox-select" [(ngModel)]="paisSelecionado" (change)="paisId = paisSelecionado.id">
+            <option value="" disabled selected>Selecione um pais</option>
+            <option *ngFor="let pais of paises" [ngValue]="pais">{{pais.id}} - {{pais.name}}</option>
+        </select>
+    </div>
+    <div class="combobox-container">
+        <label for="corridas">Corrida:</label>
+        <select id="corridas" class="combobox-select" [(ngModel)]="corridaSelecionada" (change)="corridaId = corridaSelecionada.id">
+            <option value="" disabled selected>Selecione um pais</option>
+            <option *ngFor="let corrida of corridas" [ngValue]="corrida">{{corrida.id}} - {{corrida.data}} - {{corrida.campeonatoNome}}</option>
+        </select>
+    </div>
+    <div class="buttonContainer">
+        <button (click)="getPilotoByPaisAndCorrida()">Buscar</button>
+    </div>
+    <div>
+        <p>Total de Pilotos: {{totalPilotos}}</p>
+    </div>
+</div>

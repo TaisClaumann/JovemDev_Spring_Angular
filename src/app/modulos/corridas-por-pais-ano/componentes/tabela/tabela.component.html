@@ -1,0 +1,16 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>COD</th>
+            <th>Data</th>
+            <th>Pista</th>
+            <th>Campeonato</th>
+        </tr>
+        <tr *ngFor="let corrida of corridas">
+            <td>{{corrida.id}}</td>
+            <td>{{corrida.data}}</td>
+            <td>{{corrida.pistaId}}</td>
+            <td>{{corrida.campeonatoNome}}</td>
+        </tr>
+    </table>
+</div>

@@ -68,7 +68,7 @@ export class PilotoService {
   }
 
   public delete(piloto: Piloto): Observable<void>{
-    return this.http.delete<void>(`${this.urlBase}/${piloto.id}`);
+    return this.http.delete<void>(`${this.urlBase}/${piloto.id}`, this.getHttpOptions());
   }
 
   public getPilotoSelect(piloto: Piloto){

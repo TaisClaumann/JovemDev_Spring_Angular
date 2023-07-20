@@ -45,27 +45,26 @@ export class FormComponent implements OnInit {
   }
 
   public insert() {
-    if (this.pistaSelecionada && this.campeonatoSelecionado) {
-      this.corrida.pistaId = this.pistaSelecionada.id;
-      this.corrida.campeonatoId = this.campeonatoSelecionado.id;
+    if (this.pistaId && this.campeonatoId) {
+      this.corrida.pistaId = this.pistaId;
+      this.corrida.campeonatoId = this.campeonatoId;
+    }
+    
+    const dataFormatada = this.formataData(this.corrida.data);
+    if (dataFormatada) {
+      this.corrida.data = dataFormatada;
+    }
 
-      const dataFormatada = this.formataData(this.corrida.data);
-      if (dataFormatada) {
-        this.corrida.data = dataFormatada;
-      }
-      if (dataFormatada) {
-        if (this.corrida.id != null) {
-          this.service.update(this.corrida).subscribe((data) => {
-            this.corrida = data;
-            this.corrida = {} as Corrida;
-          });
-        } else {
-          this.service.insert(this.corrida).subscribe((data) => {
-            this.corrida = data;
-            this.corrida = {} as Corrida;
-          });
-        }
-      }
+    if (this.corrida.id != null) {
+      this.service.update(this.corrida).subscribe((data) => {
+        this.corrida = data;
+        this.corrida = {} as Corrida;
+      });
+    } else {
+      this.service.insert(this.corrida).subscribe((data) => {
+        this.corrida = data;
+        this.corrida = {} as Corrida;
+      });
     }
   }
 

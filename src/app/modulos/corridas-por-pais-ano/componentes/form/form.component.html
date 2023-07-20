@@ -1,0 +1,19 @@
+<div>
+    <div class="titulo">
+        <h2>Buscar Corridas por País e Ano</h2>
+    </div>
+    <div class="combobox-container">
+        <label for="paises">País:</label>
+        <select id="paises" class="combobox-select" [(ngModel)]="paisSelecionado" (change)="paisId = paisSelecionado.id">
+            <option value="" disabled selected>Selecione um pais</option>
+            <option *ngFor="let pais of paises" [ngValue]="pais">{{pais.id}} - {{pais.name}}</option>
+        </select>
+    </div>
+    <div class="combobox-container">
+        <label for="ano">Ano:</label>
+        <input class="input" type="text" id="ano" [(ngModel)]="ano">
+    </div>
+    <div class="buttonContainer">
+        <button (click)="getCorridaByPaisAndAno()">Buscar</button>
+    </div>
+</div>

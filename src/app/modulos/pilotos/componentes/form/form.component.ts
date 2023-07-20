@@ -31,6 +31,9 @@ export class FormComponent implements OnInit{
     this.equipeService.listAll().subscribe((data) => {
       this.equipes = data;
     });
+    this.service.selectPilotoEvent.subscribe((data) => {
+      this.piloto = data;
+    })
   }
 
   public getPilotosById() {

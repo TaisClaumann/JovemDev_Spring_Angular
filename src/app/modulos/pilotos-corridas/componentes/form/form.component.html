@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="combobox-container">
+        <label for="pilotos">Piloto:</label>
+        <select id="pilotos" class="combobox-select" [(ngModel)]="pilotoSelecionado" (change)="pilotoId = pilotoSelecionado.id">
+            <option value="" disabled selected>Selecione um piloto</option>
+            <option *ngFor="let piloto of pilotos" [ngValue]="piloto">{{piloto.id}} - {{piloto.nome}}</option>
+        </select>
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getPilotoCorridaByPiloto()">
+    </div>
+    <div class="combobox-container">
+        <label for="corridas">Corrida:</label>
+        <select id="corridas" class="combobox-select" [(ngModel)]="corridaSelecionada" (change)="corridaId = corridaSelecionada.id">
+            <option value="" disabled selected>Selecione uma corrida</option>
+            <option *ngFor="let corrida of corridas" [ngValue]="corrida">{{corrida.id}} - {{corrida.data}} - {{corrida.campeonatoNome}}</option>
+        </select>
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getPilotoCorridaByCorrida()">
+    </div>
+    <div class="combobox-container">
+        <label for="colocacao">Colocação:</label>
+        <input class="input" type="text" id="colocacao" [(ngModel)]="pilotoCorrida.colocacao">
+    </div>
+    <div class="buttonContainer">
+        <button (click)="insert()">Salvar</button>
+    </div>
+    <div class="combobox-container">
+        <label for="id">COD:</label>
+        <input class="inputCodigo" type="text" id="id" [(ngModel)]="id" placeholder="Busque pelo codigo aqui">
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getPilotoCorridaById()">
+    </div>
+    <div class="espacamentoBuscar">
+        <label class="labelBuscar" for="colocacao">Buscar colocações de uma corrida:</label>
+        <div class="combobox-container">
+            <select id="corridaColocacao" class="combobox-select" [(ngModel)]="corridaSelecionada" (change)="corridaId = corridaSelecionada.id">
+                <option value="" disabled selected>Selecione uma corrida</option>
+                <option *ngFor="let corrida of corridas" [ngValue]="corrida">{{corrida.id}} - {{corrida.data}} - {{corrida.campeonatoNome}}</option>
+            </select>
+            <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getByCorridaOrderByColocacao()">
+        </div>
+    </div>
+</div>

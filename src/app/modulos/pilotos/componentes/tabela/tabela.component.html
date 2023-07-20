@@ -1,1 +1,21 @@
-<p>tabela works!</p>
+<div class="container">
+    <table>
+        <tr>
+            <th>COD</th>
+            <th>Nome</th>
+            <th>País</th>
+            <th>Equipe</th>
+            <th>Ações</th>
+        </tr>
+        <tr *ngFor="let piloto of pilotos">
+            <td>{{piloto.id}}</td>
+            <td>{{piloto.nome}}</td>
+            <td>{{piloto.paisNome}}</td>
+            <td>{{piloto.equipeNome}}</td>
+            <td class="celulaCentralizada">
+                <img (click)="delete(piloto)" class="icone" src="../../../../../assets/icons/delete.png" alt="lixo">
+                <img (click)="getPilotoSelect(piloto)" class="icone" src="../../../../../assets/icons/edit.png" alt="caneta">
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>COD</th>
+            <th>Piloto</th>
+            <th>Equipe</th>
+            <th>Colocacao</th>
+        </tr>
+        <tr *ngFor="let pilotoPais of pilotosPais">
+            <td>{{pilotoPais.pilotoId}}</td>
+            <td>{{pilotoPais.pilotoNome}}</td>
+            <td>{{pilotoPais.equipeNome}}</td>
+            <td>{{pilotoPais.colocacao}}</td>
+        </tr>
+    </table>
+</div>
+

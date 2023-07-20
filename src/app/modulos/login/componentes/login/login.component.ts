@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Login } from '../../models/login';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, tap } from 'rxjs';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,27 +12,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class LoginComponent {
 
   public login = {} as Login;
-  public token: string = "Bearer ";
 
-  private httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'}),
-    responseType: 'text' as 'json'
-  }
-
-  constructor(private http: HttpClient) {}
+  constructor(private service: LoginService) {}
 
   public getToken(){
-    let url = "http://localhost:8099/auth/token";
-    let userLogin = {
-      email: this.login.email,
-      password: this.login.password
-    }
-    this.http.post<string>(url, userLogin, this.httpOptions).subscribe((data) => {
-      this.token += data;
+    this.service.getToken(this.login).subscribe(() => {
     });
-  }
-
-  public enviar(){
-    
   }
 }

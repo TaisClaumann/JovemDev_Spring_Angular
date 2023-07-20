@@ -39,6 +39,9 @@ export class FormComponent implements OnInit {
     this.campeonatoService.listAll().subscribe((data) => {
       this.campeonatos = data;
     })
+    this.service.selectCorridaEvent.subscribe((data) => {
+      this.corrida = data;
+    })
   }
 
   public insert() {

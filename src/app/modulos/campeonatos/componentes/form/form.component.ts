@@ -13,6 +13,8 @@ export class FormComponent implements OnInit{
   public id !: number;
   public anoInicial!: number;
   public anoFinal!: number;
+  public description!: string;
+  public ano!: number;
 
   constructor(private service: CampeonatoService){}
 
@@ -52,4 +54,7 @@ export class FormComponent implements OnInit{
     this.service.findByAnoBetween(this.anoInicial, this.anoFinal);
   }
 
+  public getCampeonatoByDescriptionEAno() {
+    this.service.findByDescriptionAndAno(this.description, this.ano);
+  }
 }

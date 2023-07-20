@@ -29,6 +29,7 @@ export class FormComponent implements OnInit{
     } else {
       this.service.insert(this.equipe).subscribe((data) => {
         this.equipe = data;
+        this.equipe = {} as Equipe;
       })
     }
   }

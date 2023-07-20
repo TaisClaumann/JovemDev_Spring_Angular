@@ -13,6 +13,7 @@ import { CampeonatosModule } from './modulos/campeonatos/campeonatos.module';
 import { PistasModule } from './modulos/pistas/pistas.module';
 import { CorridasModule } from './modulos/corridas/corridas.module';
 import { LoginModule } from './modulos/login/login.module';
+import { PilotosModule } from './modulos/pilotos/pilotos.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +29,8 @@ import { LoginModule } from './modulos/login/login.module';
     CampeonatosModule,
     PistasModule,
     CorridasModule,
-    LoginModule
+    LoginModule,
+    PilotosModule
   ],
   providers: [],
   bootstrap: [AppComponent],

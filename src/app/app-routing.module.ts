@@ -8,16 +8,18 @@ import { CampeonatoComponent } from './modulos/campeonatos/componentes/campeonat
 import { PistaComponent } from './modulos/pistas/componentes/pista/pista.component';
 import { CorridaComponent } from './modulos/corridas/componentes/corrida/corrida.component';
 import { LoginComponent } from './modulos/login/componentes/login/login.component';
+import { PilotoComponent } from './modulos/pilotos/componentes/piloto/piloto.component';
 
 const routes: Routes = [
   {path: "", component: HomePageComponent},
-  {path: "login", component: LoginComponent},
+  {path: "auth", component: LoginComponent},
   {path: "user", component: UserComponent},
   {path: "pais", component: PaisComponent},
   {path: "equipe", component: EquipeComponent},
   {path: "campeonato", component: CampeonatoComponent},
   {path: "pista", component: PistaComponent},
-  {path: "corrida", component: CorridaComponent}
+  {path: "corrida", component: CorridaComponent},
+  {path: "piloto", component: PilotoComponent}
 ];
 
 @NgModule({

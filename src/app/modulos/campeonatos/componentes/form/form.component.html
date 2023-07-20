@@ -25,4 +25,12 @@
         <input class="inputPequeno" type="text" id="id" [(ngModel)]="anoFinal" placeholder="Informe o ano final">
         <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getCampeonatoByAnoBetween()">
     </div>
+    <div class="espacamentoBuscar">
+        <label class="labelBuscar" for="ano-nome">Buscar campeonatos por nome e ano:</label>
+    </div>
+    <div class="form-group">
+        <input class="inputPequeno" type="text" id="ano-nome" [(ngModel)]="description" placeholder="Informe o nome">
+        <input class="inputPequeno" type="text" id="ano-nome" [(ngModel)]="ano" placeholder="Informe o ano">
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getCampeonatoByDescriptionEAno()">
+    </div>
 </div>

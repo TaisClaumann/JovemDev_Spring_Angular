@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="combobox-container">
+        <label class="label" for="nome">Nome:</label>
+        <input class="input" type="text" id="nome" [(ngModel)]="piloto.nome">
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getPilotosByNome()">
+    </div>
+    <div class="combobox-container">
+        <label for="paises">País:</label>
+        <select id="paises" class="combobox-select" [(ngModel)]="paisSelecionado" (change)="paisId = paisSelecionado.id">
+            <option value="" disabled selected>Selecione um país</option>
+            <option *ngFor="let pais of paises" [ngValue]="pais">{{pais.id}} - {{pais.name}}</option>
+        </select>
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getPilotosByPais()">
+    </div>
+    <div class="combobox-container">
+        <label for="equipes">Equipe:</label>
+        <select id="equipes" class="combobox-select" [(ngModel)]="equipeSelecionada" (change)="equipeId = equipeSelecionada.id">
+            <option value="" disabled selected>Selecione uma equipe</option>
+            <option *ngFor="let equipe of equipes" [ngValue]="equipe">{{equipe.id}} - {{equipe.name}}</option>
+        </select>
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getPilotosByEquipe()">
+    </div>
+    <div class="buttonContainer">
+        <button (click)="insert()">Salvar</button>
+    </div>
+    <div class="form-group">
+        <label class="label" for="id">COD:</label>
+        <input class="inputCodigo" type="text" id="id" [(ngModel)]="id" placeholder="Busque pelo codigo aqui">
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getPilotosById()">
+    </div>
+</div>

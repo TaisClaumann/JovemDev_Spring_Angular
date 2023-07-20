@@ -30,6 +30,7 @@ export class FormComponent implements OnInit{
     } else {
       this.service.insert(this.user).subscribe((data) => {
         this.user = data;
+        this.user = {} as User;
       });
     }
   }

@@ -10,18 +10,10 @@ import { UserServiceService } from '../../services/user-service.service';
 export class TabelaComponent implements OnInit{
   
   public users : User[] = [];
-  public token: string = "Bearer ";
+  
   constructor(private service: UserServiceService){}
 
   ngOnInit(): void {
-    /*
-   this.service.getToken().subscribe((data) => {
-    this.token += data;
-    this.service.getUsers(this.token).subscribe((data) => {
-      this.users = data;
-    })
-   });
-   */
     this.service.getUsers().subscribe((data) => {
       this.users = data;
     });

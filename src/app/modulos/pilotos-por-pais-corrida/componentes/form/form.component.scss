@@ -7,13 +7,16 @@ label {
     margin-right: 10px;
 }
 
-.input {
-    width: 350px;
-    height: 30px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.labelBuscar{
     margin-right: 10px;
+    color: rgb(10, 155, 10);
+}
+
+.espacamentoBuscar{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .combobox-container {
@@ -29,6 +32,16 @@ label {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
+}
+
+.combobox-selectPais {
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-left: 22px;
 }
 
 .buttonContainer{

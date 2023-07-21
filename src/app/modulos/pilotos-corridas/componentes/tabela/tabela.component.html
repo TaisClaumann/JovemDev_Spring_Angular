@@ -8,10 +8,10 @@
             <th>Ações</th>
         </tr>
         <tr *ngFor="let pilotoCorrida of pilotosCorridas">
-            <td>{{pilotoCorrida.id}}</td>
+            <td class="celulaCentralizada">{{pilotoCorrida.id}}</td>
             <td>{{pilotoCorrida.pilotoNome}}</td>
-            <td>{{pilotoCorrida.corridaData}}</td>
-            <td>{{pilotoCorrida.colocacao}}</td>
+            <td class="celulaCentralizada">{{pilotoCorrida.corridaData}}</td>
+            <td class="celulaCentralizada">{{pilotoCorrida.colocacao}}</td>
             <td class="celulaCentralizada">
                 <img (click)="delete(pilotoCorrida)" class="icone" src="../../../../../assets/icons/delete.png" alt="lixo">
                 <img (click)="getPilotoCorridaSelect(pilotoCorrida)" class="icone" src="../../../../../assets/icons/edit.png" alt="caneta">

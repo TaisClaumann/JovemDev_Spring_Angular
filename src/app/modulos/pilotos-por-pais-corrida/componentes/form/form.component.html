@@ -4,22 +4,22 @@
     </div>
     <div class="combobox-container">
         <label for="paises">País:</label>
-        <select id="paises" class="combobox-select" [(ngModel)]="paisSelecionado" (change)="paisId = paisSelecionado.id">
-            <option value="" disabled selected>Selecione um pais</option>
+        <select id="paises" class="combobox-selectPais" [(ngModel)]="paisSelecionado" (change)="paisId = paisSelecionado.id">
+            <option value="" disabled selected>Selecione um país</option>
             <option *ngFor="let pais of paises" [ngValue]="pais">{{pais.id}} - {{pais.name}}</option>
         </select>
     </div>
     <div class="combobox-container">
         <label for="corridas">Corrida:</label>
         <select id="corridas" class="combobox-select" [(ngModel)]="corridaSelecionada" (change)="corridaId = corridaSelecionada.id">
-            <option value="" disabled selected>Selecione um pais</option>
+            <option value="" disabled selected>Selecione uma corrida</option>
             <option *ngFor="let corrida of corridas" [ngValue]="corrida">{{corrida.id}} - {{corrida.data}} - {{corrida.campeonatoNome}}</option>
         </select>
     </div>
     <div class="buttonContainer">
         <button (click)="getPilotoByPaisAndCorrida()">Buscar</button>
     </div>
-    <div>
-        <p>Total de Pilotos: {{totalPilotos}}</p>
+    <div class="espacamentoBuscar">
+        <label class="labelBuscar" for="totalPilotos">Total de Pilotos: {{totalPilotos}}</label>
     </div>
 </div>

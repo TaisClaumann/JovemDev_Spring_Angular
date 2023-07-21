@@ -1,9 +1,5 @@
 <div class="container">
     <div class="combobox-container">
-        <label for="tamanho">Tamanho:</label>
-        <input class="input" type="text" id="tamanho" [(ngModel)]="pista.tamanho">
-    </div>
-    <div class="combobox-container">
         <label for="pais">Pais:</label>
         <select id="paises" class="combobox-select" [(ngModel)]="paisSelecionado" (change)="paisId = paisSelecionado.id">
             <option value="" disabled selected>Selecione um país</option>
@@ -11,12 +7,16 @@
         </select>
         <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getPistaByPais()">
     </div>
+    <div class="combobox-container">
+        <label for="tamanho">Tamanho:</label>
+        <input class="inputPequeno" type="text" id="tamanho" [(ngModel)]="pista.tamanho">
+    </div>
     <div class="buttonContainer">
         <button (click)="insert()">Salvar</button>
     </div>
     <div class="combobox-container">
         <label for="id">COD:</label>
-        <input class="inputCodigo" type="text" id="id" [(ngModel)]="id" placeholder="Busque pelo codigo aqui">
+        <input class="inputCodigo" type="text" id="id" [(ngModel)]="id" placeholder="Buscar pelo codigo">
         <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getPistaById()">
     </div>
     <div class="espacamentoBuscar">

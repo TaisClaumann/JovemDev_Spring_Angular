@@ -7,8 +7,8 @@
             <th>Ações</th>
         </tr>
         <tr *ngFor="let pista of pistas">
-            <td>{{pista.id}}</td>
-            <td>{{pista.tamanho}}</td>
+            <td class="celulaCentralizada">{{pista.id}}</td>
+            <td class="celulaCentralizada">{{pista.tamanho}}m</td>
             <td>{{pista.pais.name}}</td>
             <td class="celulaCentralizada">
                 <img (click)="delete(pista)" class="icone" src="../../../../../assets/icons/delete.png" alt="lixo">

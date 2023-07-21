@@ -1,16 +1,8 @@
 <div class="container">
     <div class="combobox-container">
         <label for="data-hora">Data e Hora:</label>
-        <input class="input" type="datetime-local" id="data-hora" [(ngModel)]="corrida.data">
+        <input class="inputPequeno" type="datetime-local" id="data-hora" [(ngModel)]="corrida.data">
         <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getCorridaByData()">
-    </div>
-    <div class="combobox-container">
-        <label for="pistas">Pista:</label>
-        <select id="pistas" class="combobox-select" [(ngModel)]="pistaSelecionada" (change)="pistaId = pistaSelecionada.id">
-            <option value="" disabled selected>Selecione uma pista</option>
-            <option *ngFor="let pista of pistas" [ngValue]="pista">{{pista.id}} - {{pista.tamanho}}m - {{pista.pais.name}}</option>
-        </select>
-        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getCorridaByPista()">
     </div>
     <div class="combobox-container">
         <label for="campeonatos">Campeonato:</label>
@@ -20,12 +12,20 @@
         </select>
         <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getCorridaByCampeonato()">
     </div>
+    <div class="combobox-container">
+        <label for="pistas">Pista:</label>
+        <select id="pistas" class="combobox-selectPista" [(ngModel)]="pistaSelecionada" (change)="pistaId = pistaSelecionada.id">
+            <option value="" disabled selected>Selecione uma pista</option>
+            <option *ngFor="let pista of pistas" [ngValue]="pista">{{pista.id}} - {{pista.tamanho}}m - {{pista.pais.name}}</option>
+        </select>
+        <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getCorridaByPista()">
+    </div>
     <div class="buttonContainer">
         <button (click)="insert()">Salvar</button>
     </div>
     <div class="combobox-container">
         <label for="id">COD:</label>
-        <input class="inputCodigo" type="text" id="id" [(ngModel)]="id" placeholder="Busque pelo codigo aqui">
+        <input class="inputCodigo" type="text" id="id" [(ngModel)]="id" placeholder="Busque pelo codigo">
         <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getCorridaById()">
     </div>
     <div class="espacamentoBuscar">

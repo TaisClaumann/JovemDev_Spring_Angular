@@ -14,8 +14,9 @@ import { PistaComponent } from './modulos/pistas/componentes/pista/pista.compone
 import { UserComponent } from './modulos/users/componentes/user/user.component';
 
 const routes: Routes = [
-  {path: "", component: HomePageComponent},
-  {path: "auth", component: LoginComponent},
+  //{path: "", component: HomePageComponent},
+  {path: "", component: LoginComponent},
+  {path: "home", component: HomePageComponent},
   {path: "user", component: UserComponent},
   {path: "pais", component: PaisComponent},
   {path: "equipe", component: EquipeComponent},

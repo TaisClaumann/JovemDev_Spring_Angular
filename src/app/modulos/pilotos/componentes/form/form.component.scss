@@ -8,12 +8,13 @@ label {
 }
 
 .input {
-    width: 350px;
+    width: 420px;
     height: 30px;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-right: 10px;
+    margin-left: 5px;
 }
 
 .inputCodigo{
@@ -74,4 +75,16 @@ button:hover{
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
+    margin-right: 10px;
+}
+
+.combobox-selectPais {
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-left: 18px;
+    margin-right: 10px;
 }

@@ -8,10 +8,10 @@
             <th>Ações</th>
         </tr>
         <tr *ngFor="let corrida of corridas">
-            <td>{{corrida.id}}</td>
+            <td class="celulaCentralizada">{{corrida.id}}</td>
             <td>{{corrida.data}}</td>
-            <td>{{corrida.pistaId}}</td>
-            <td>{{corrida.campeonatoNome}}</td>
+            <td class="celulaCentralizada">{{corrida.pistaId}}</td>
+            <td class="celulaCentralizada">{{corrida.campeonatoNome}}</td>
             <td class="celulaCentralizada">
                 <img (click)="delete(corrida)" class="icone" src="../../../../../assets/icons/delete.png" alt="lixo">
                 <img (click)="getCorridaSelect(corrida)" class="icone" src="../../../../../assets/icons/edit.png" alt="caneta">

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="combobox-container">
         <label for="data-hora">Data e Hora:</label>
-        <input class="inputPequeno" type="datetime-local" id="data-hora" [(ngModel)]="corrida.data">
+        <input type="datetime-local" id="data-hora" [(ngModel)]="corrida.data">
         <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getCorridaByData()">
     </div>
     <div class="combobox-container">
@@ -32,8 +32,8 @@
         <label class="labelBuscar" for="datas">Buscar corridas entre datas:</label>
     </div>
     <div class="form-group">
-        <input class="inputPequeno" type="datetime-local" id="datas" [(ngModel)]="dataInicial" placeholder="Data e hora inicial">
-        <input class="inputPequeno" type="datetime-local" id="datas" [(ngModel)]="dataFinal" placeholder="Data e hora final">
+        <input type="datetime-local" id="datas" [(ngModel)]="dataInicial" placeholder="Data e hora inicial">
+        <input type="datetime-local" id="datas" [(ngModel)]="dataFinal" placeholder="Data e hora final">
         <img class="lupa" src="../../../../../assets/icons/lupa.png" alt="lupa" (click)="getCorridaByDataBetween()">
     </div>
 </div>

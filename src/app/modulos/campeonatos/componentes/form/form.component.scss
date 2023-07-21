@@ -9,35 +9,14 @@
     margin-bottom: 10px;
 }
 
-label {
-    margin-right: 10px;
+.lupa {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
 .labelAno{
     margin-right: 21px;
-}
-
-.labelBuscar{
-    margin-right: 10px;
-    color: rgb(10, 155, 10);
-}
-
-input {
-    width: 350px;
-    height: 30px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
-.inputCodigo{
-    width: 150px;
-    height: 30px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
 }
 
 .inputPequeno{
@@ -47,12 +26,6 @@ input {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-right: 10px;
-}
-
-.lupa {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
 }
 
 .buttonContainer{
@@ -76,9 +49,23 @@ input {
     background-color: rgb(8, 139, 8);
 }
 
+.inputCodigo{
+    width: 150px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
 .espacamentoBuscar{
     display: flex;
     align-items: center;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+.labelBuscar{
+    margin-right: 10px;
+    color: rgb(10, 155, 10);
 }

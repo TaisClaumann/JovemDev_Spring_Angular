@@ -45,10 +45,8 @@ export class FormComponent implements OnInit {
   }
 
   public insert() {
-    if (this.pistaId && this.campeonatoId) {
-      this.corrida.pistaId = this.pistaId;
-      this.corrida.campeonatoId = this.campeonatoId;
-    }
+    this.corrida.campeonatoId = this.campeonatoSelecionado.id;
+    this.corrida.pistaId = this.pistaSelecionada.id;
     
     const dataFormatada = this.formataData(this.corrida.data);
     if (dataFormatada) {
@@ -92,14 +90,10 @@ export class FormComponent implements OnInit {
   }
 
   public getCorridaByPista() {
-    if (this.pistaId != null) {
-      this.service.findByPista(this.pistaId);
-    }
+    this.service.findByPista(this.pistaSelecionada.id);
   }
 
   public getCorridaByCampeonato() {
-    if (this.campeonatoId != null) {
-      this.service.findByCampeonato(this.campeonatoId);
-    }
+    this.service.findByCampeonato(this.campeonatoSelecionado.id);
   }
 }

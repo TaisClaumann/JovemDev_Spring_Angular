@@ -24,37 +24,49 @@ export class CampeonatoService {
   }
 
   public listAll(): Observable<Campeonato[]>{
-    this.http.get<Campeonato[]>(this.urlBase, this.getHttpOptions()).subscribe((campeonatos) => this.campeonatosSubject.next(campeonatos));
+    this.http.get<Campeonato[]>(this.urlBase, this.getHttpOptions()).subscribe((data) => {
+      this.campeonatosSubject.next(data);
+    });
     return this.campeonatosSubject.asObservable();
   }
 
   public findByDescription(description: string): Observable<Campeonato[]>{
     let url = `${this.urlBase}/like/${description}`;
-    this.http.get<Campeonato[]>(url, this.getHttpOptions()).subscribe((campeonatos) => this.campeonatosSubject.next(campeonatos));
+    this.http.get<Campeonato[]>(url, this.getHttpOptions()).subscribe((data) => {
+      this.campeonatosSubject.next(data);
+    });
     return this.campeonatosSubject.asObservable();
   }
 
   public findByDescriptionAndAno(description: string, ano: number): Observable<Campeonato[]>{
     let url = `${this.urlBase}/description-ano/${description}/${ano}`;
-    this.http.get<Campeonato[]>(url, this.getHttpOptions()).subscribe((campeonatos) => this.campeonatosSubject.next(campeonatos));
+    this.http.get<Campeonato[]>(url, this.getHttpOptions()).subscribe((data) => {
+      this.campeonatosSubject.next(data);
+    });
     return this.campeonatosSubject.asObservable();
   }
 
   public findById(id: number): Observable<Campeonato>{
     let url = `${this.urlBase}/${id}`;
-    this.http.get<Campeonato>(url, this.getHttpOptions()).subscribe((campeonato) => this.campeonatoSubject.next(campeonato));
+    this.http.get<Campeonato>(url, this.getHttpOptions()).subscribe((data) => {
+      this.campeonatoSubject.next(data);
+    });
     return this.campeonatoSubject.asObservable();
   }
 
   public findByAno(ano: number): Observable<Campeonato[]>{
     let url = `${this.urlBase}/ano/${ano}`;
-    this.http.get<Campeonato[]>(url, this.getHttpOptions()).subscribe((campeonatos) => this.campeonatosSubject.next(campeonatos));
+    this.http.get<Campeonato[]>(url, this.getHttpOptions()).subscribe((data) => {
+      this.campeonatosSubject.next(data);
+    });
     return this.campeonatosSubject.asObservable();
   }
 
   public findByAnoBetween(anoInicial: number, anoFinal: number): Observable<Campeonato[]>{
     let url = `${this.urlBase}/between/${anoInicial}/${anoFinal}`;
-    this.http.get<Campeonato[]>(url, this.getHttpOptions()).subscribe((campeonatos) => this.campeonatosSubject.next(campeonatos));
+    this.http.get<Campeonato[]>(url, this.getHttpOptions()).subscribe((data) => {
+      this.campeonatosSubject.next(data);
+    });
     return this.campeonatosSubject.asObservable();
   }
 
